@@ -1,0 +1,13 @@
+﻿{
+  "disabled": false,
+  "scriptFile": "..\\bin\\PandaScraper.dll",
+  "entryPoint": "PandaScraper.ScrapeTrigger.Run",
+  "bindings": [
+    {
+      "name": "scrapeTrigger",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
+}
