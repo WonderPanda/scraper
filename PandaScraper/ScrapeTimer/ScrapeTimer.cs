@@ -4,14 +4,19 @@ using System.Linq;
 using System.Web;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
+using PandaScraper.Models;
 
 namespace PandaScraper.ScrapeTimer
 {
     public class ScrapeTimer
     {
-        public static void Run(TimerInfo scrapeTimer, TraceWriter log)
+        public static void Run(TimerInfo scrapeTimer, IQueryable<SavedSearch> tableBinding, ICollector<SavedSearch> queueBinding, TraceWriter log)
         {
-            log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+            var searches = tableBinding.ToList();
+
+            log.Info($"Scheduled {searches.Count} searches at {DateTime.Now}");
+
+            searches.ForEach(queueBinding.Add);
         }
     }
 }

@@ -8,6 +8,20 @@
       "type": "timerTrigger",
       "direction": "in",
       "schedule": "0 */1 * * * *"
+    },
+    {
+      "name": "tableBinding",
+      "type": "table",
+      "tableName": "Searches",
+      "connection": "ScraperStorage",
+      "direction": "in"
+    },
+    {
+      "name": "queueBinding",
+      "type": "queue",
+      "queueName": "Searches",
+      "connection": "ScraperStorage", 
+      "direction": "out" 
     }
   ]
 }

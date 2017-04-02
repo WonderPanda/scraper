@@ -1,0 +1,21 @@
+﻿{
+  "disabled": false,
+  "scriptFile": "..\\bin\\PandaScraper.dll",
+  "entryPoint": "PandaScraper.SearchRunner.SearchRunner.Run",
+  "bindings": [
+    {
+      "name": "queueItem",
+      "type": "queueTrigger",
+      "queueName": "Searches",
+      "connection": "ScraperStorage",
+      "direction": "in"
+    },
+    {
+      "name": "table",
+      "type": "table",
+      "tableName": "Searches",
+      "connection": "ScraperStorage",
+      "direction": "in"
+    }
+  ]
+}
