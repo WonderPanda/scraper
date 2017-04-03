@@ -1,11 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaScraper", "PandaScraper\PandaScraper.csproj", "{4D544CDE-AA21-48E3-B532-58D4D2803128}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaScraper.Tests", "PandaScraper.Tests\PandaScraper.Tests.csproj", "{1A75745D-7D9C-4CCD-9C9D-7A087BFF2A0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kijiji", "Kijiji\Kijiji.csproj", "{E7C0766A-9AA4-442D-A502-97794336361F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kijiji.Tests", "Kijiji.Tests\Kijiji.Tests.csproj", "{119DF521-9174-4682-8EB3-32D60B76AE2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{1A75745D-7D9C-4CCD-9C9D-7A087BFF2A0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A75745D-7D9C-4CCD-9C9D-7A087BFF2A0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1A75745D-7D9C-4CCD-9C9D-7A087BFF2A0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7C0766A-9AA4-442D-A502-97794336361F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7C0766A-9AA4-442D-A502-97794336361F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7C0766A-9AA4-442D-A502-97794336361F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7C0766A-9AA4-442D-A502-97794336361F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{119DF521-9174-4682-8EB3-32D60B76AE2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{119DF521-9174-4682-8EB3-32D60B76AE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{119DF521-9174-4682-8EB3-32D60B76AE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{119DF521-9174-4682-8EB3-32D60B76AE2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
