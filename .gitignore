@@ -260,3 +260,5 @@ IntegrationTests
 
 # Utilities build folder
 Tools
+
+appsettings.json
