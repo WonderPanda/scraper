@@ -10,33 +10,43 @@ namespace Kijiji
 {
     public class KijijiScraper
     {
-        public async Task<List<KijijiAd>> GetAds(string address, DateTime newerThan)
+        public async Task<List<KijijiAdBase>> GetShallowAds(string address, DateTime newerThan)
         {
             var config = Configuration.Default.WithDefaultLoader();
-            
+
             var document = await BrowsingContext.New(config).OpenAsync(address);
 
-            var filteredItems = document.QuerySelectorAll("item")
+            var filteredAds = document.QuerySelectorAll("item")
                 .Select(item =>
                 {
                     var postedAt = DateTime.Parse(item.QuerySelector("pubDate").TextContent).ToUniversalTime();
                     var adUrl = item.QuerySelector("guid").TextContent;
-                    return new
+                    var title = item.QuerySelector("title").TextContent;
+                    return new KijijiAdBase
                     {
-                        postedAt,
-                        adUrl
+                        AdUrl = adUrl,
+                        Title = title,
+                        PostedAt = postedAt   
                     };
                 })
-                .Where(item => item.postedAt > newerThan)
+                .Where(item => item.PostedAt > newerThan)
                 .ToList();
-            
-            var adDocuments = await Task.WhenAll(filteredItems.Select(x => BrowsingContext.New(config).OpenAsync(x.adUrl)));
-            var zipped = filteredItems.Zip(adDocuments, (info, adDoc) =>
+
+            return filteredAds;
+        }
+
+        public async Task<List<KijijiAd>> GetAds(string address, DateTime newerThan)
+        {
+            var shallowAds = await GetShallowAds(address, newerThan);
+            var config = Configuration.Default.WithDefaultLoader();
+
+            var adDocuments = await Task.WhenAll(shallowAds.Select(x => BrowsingContext.New(config).OpenAsync(x.AdUrl)));
+            var zipped = shallowAds.Zip(adDocuments, (shallow, adDoc) =>
             {
                 return new
                 {
-                    info.adUrl,
-                    info.postedAt,
+                    shallow.AdUrl,
+                    shallow.PostedAt,
                     adDoc
                 };
             });
@@ -47,8 +57,8 @@ namespace Kijiji
                 {
                     Title = item.adDoc.QuerySelector("span[itemprop=name]").TextContent.Trim(),
                     Description = item.adDoc.QuerySelector("span[itemprop=description]").TextContent.Trim(),
-                    AdUrl = item.adUrl,
-                    PostedAt = item.postedAt
+                    AdUrl = item.AdUrl,
+                    PostedAt = item.PostedAt
                 };
 
                 var images = item.adDoc.QuerySelectorAll("img[itemprop=image]")

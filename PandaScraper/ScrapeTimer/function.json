@@ -12,14 +12,14 @@
     {
       "name": "tableBinding",
       "type": "table",
-      "tableName": "Searches",
+      "tableName": "SearchesQA",
       "connection": "ScraperStorage",
       "direction": "in"
     },
     {
       "name": "queueBinding",
       "type": "queue",
-      "queueName": "Searches",
+      "queueName": "SearchesQA",
       "connection": "ScraperStorage", 
       "direction": "out" 
     }

@@ -8,6 +8,7 @@ using Microsoft.Azure.WebJobs.Host;
 using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using PandaScraper.Models;
+using Pandamonium.Serverless;
 
 namespace PandaScraper.Searches
 {
@@ -16,6 +17,8 @@ namespace PandaScraper.Searches
         public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, IAsyncCollector<SavedSearch> tableBinding, TraceWriter log)
         {
             log.Info($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+
+            var context = ServerlessContext.Instance.Value;
 
             dynamic data = await req.Content.ReadAsAsync<object>();
             var searchUrl = data?.searchUrl.ToString();
@@ -33,7 +36,7 @@ namespace PandaScraper.Searches
                 WebhookUrl = webhookUrl,
                 NewerThan = DateTime.UtcNow - TimeSpan.FromHours(5)
             };
-
+            
             await tableBinding.AddAsync(savedSearch);
 
             return req.CreateResponse(HttpStatusCode.OK);

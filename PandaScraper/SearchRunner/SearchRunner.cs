@@ -14,38 +14,26 @@ namespace PandaScraper.SearchRunner
 {
     public class SearchRunner
     {
-        //public static void Run(SavedSearch queueItem,
-        //    DateTimeOffset expirationTime,
-        //    DateTimeOffset insertionTime,
-        //    DateTimeOffset nextVisibleTime,
-        //    string queueTrigger,
-        //    string id,
-        //    string popReceipt,
-        //    int dequeueCount,
-        //    TraceWriter log)
-
         public static async Task Run(SavedSearch queueItem, CloudTable table, TraceWriter log)
         {
-            //log.Info($"C# Queue trigger function processed: {queueItem}\n" +
-            //    $"queueTrigger={queueTrigger}\n" +
-            //    $"expirationTime={expirationTime}\n" +
-            //    $"insertionTime={insertionTime}\n" +
-            //    $"nextVisibleTime={nextVisibleTime}\n" +
-            //    $"id={id}\n" +
-            //    $"popReceipt={popReceipt}\n" +
-            //    $"dequeueCount={dequeueCount}");
-
             var scraper = new KijijiScraper();
-            var ads = await scraper.GetAds(queueItem.SearchUrl, queueItem.NewerThan);
-            log.Info($"Found {ads.Count} items for search {queueItem.SearchUrl} at {DateTime.UtcNow}");
+            var deepSearch = queueItem?.IsDeepSearch ?? false;
 
-            if (!ads.Any()) return;
+            var ads = deepSearch ? 
+                (await scraper.GetAds(queueItem.SearchUrl, queueItem.NewerThan)).Cast<KijijiAdBase>() :
+                (await scraper.GetShallowAds(queueItem.SearchUrl, queueItem.NewerThan));
+
+            var adList = ads.ToList();
             
-            var newestDate = ads.Max(x => x.PostedAt);
+            log.Info($"Found {adList.Count} items for search {queueItem.SearchUrl} at {DateTime.UtcNow}");
+
+            if (!adList.Any()) return;
             
+            var newestDate = adList.Max(x => x.PostedAt);
+
             var client = new HttpClient();
 
-            await client.PostAsJsonAsync(queueItem.WebhookUrl, ads);
+            await client.PostAsJsonAsync(queueItem.WebhookUrl, adList);
 
             queueItem.NewerThan = newestDate;
             var operation = TableOperation.Replace(queueItem);

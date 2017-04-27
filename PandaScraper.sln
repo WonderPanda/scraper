@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaScraper", "PandaScraper\PandaScraper.csproj", "{4D544CDE-AA21-48E3-B532-58D4D2803128}"
 EndProject
@@ -10,6 +10,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kijiji", "Kijiji\Kijiji.csproj", "{E7C0766A-9AA4-442D-A502-97794336361F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kijiji.Tests", "Kijiji.Tests\Kijiji.Tests.csproj", "{119DF521-9174-4682-8EB3-32D60B76AE2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pandamonium.Http", "Pandamonium.Http\Pandamonium.Http.csproj", "{D066646D-C17A-497D-8D3A-51DA0D0A728E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pandamonium.Http.Tests", "Pandamonium.Http.Tests\Pandamonium.Http.Tests.csproj", "{954390A8-BB6B-4F55-B4E2-2B43E50CE239}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pandamonium.Serverless", "Pandamonium.Serverless\Pandamonium.Serverless.csproj", "{F1FCC3E0-6CB2-4D9E-B49B-29204A8F860E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaScraper.Gateway", "PandaScraper.Gateway\PandaScraper.Gateway.csproj", "{E50DAC5B-B39E-4773-AC5D-1E6835BCE747}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pandamonium.Utilities", "Pandamonium.Utilities\Pandamonium.Utilities.csproj", "{00D3658A-B702-4734-9AB8-93E8F8D04859}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +43,26 @@ Global
 		{119DF521-9174-4682-8EB3-32D60B76AE2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{119DF521-9174-4682-8EB3-32D60B76AE2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{119DF521-9174-4682-8EB3-32D60B76AE2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D066646D-C17A-497D-8D3A-51DA0D0A728E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D066646D-C17A-497D-8D3A-51DA0D0A728E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D066646D-C17A-497D-8D3A-51DA0D0A728E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D066646D-C17A-497D-8D3A-51DA0D0A728E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{954390A8-BB6B-4F55-B4E2-2B43E50CE239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{954390A8-BB6B-4F55-B4E2-2B43E50CE239}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{954390A8-BB6B-4F55-B4E2-2B43E50CE239}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{954390A8-BB6B-4F55-B4E2-2B43E50CE239}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1FCC3E0-6CB2-4D9E-B49B-29204A8F860E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1FCC3E0-6CB2-4D9E-B49B-29204A8F860E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1FCC3E0-6CB2-4D9E-B49B-29204A8F860E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1FCC3E0-6CB2-4D9E-B49B-29204A8F860E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E50DAC5B-B39E-4773-AC5D-1E6835BCE747}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E50DAC5B-B39E-4773-AC5D-1E6835BCE747}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E50DAC5B-B39E-4773-AC5D-1E6835BCE747}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E50DAC5B-B39E-4773-AC5D-1E6835BCE747}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00D3658A-B702-4734-9AB8-93E8F8D04859}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00D3658A-B702-4734-9AB8-93E8F8D04859}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00D3658A-B702-4734-9AB8-93E8F8D04859}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00D3658A-B702-4734-9AB8-93E8F8D04859}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

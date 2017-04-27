@@ -6,14 +6,14 @@
     {
       "name": "queueItem",
       "type": "queueTrigger",
-      "queueName": "Searches",
+      "queueName": "SearchesQA",
       "connection": "ScraperStorage",
       "direction": "in"
     },
     {
       "name": "table",
       "type": "table",
-      "tableName": "Searches",
+      "tableName": "SearchesQA",
       "connection": "ScraperStorage",
       "direction": "in"
     }

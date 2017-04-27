@@ -11,5 +11,6 @@ namespace PandaScraper.Models
         public string SearchUrl { get; set; }
         public string WebhookUrl { get; set; }
         public DateTime NewerThan { get; set; }
+        public bool IsDeepSearch { get; set; }
     }
 }

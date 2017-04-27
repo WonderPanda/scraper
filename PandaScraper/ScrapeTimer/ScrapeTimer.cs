@@ -13,9 +13,6 @@ namespace PandaScraper.ScrapeTimer
         public static void Run(TimerInfo scrapeTimer, IQueryable<SavedSearch> tableBinding, ICollector<SavedSearch> queueBinding, TraceWriter log)
         {
             var searches = tableBinding.ToList();
-
-            log.Info($"Scheduled {searches.Count} searches at {DateTime.Now}");
-
             searches.ForEach(queueBinding.Add);
         }
     }
