@@ -133,9 +133,15 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="host.json" />
-    <Content Include="ScrapeTimer\function.json" />
-    <Content Include="AddSearch\function.json" />
-    <Content Include="SearchRunner\function.json" />
+    <Content Include="ScrapeTimer\function.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="AddSearch\function.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SearchRunner\function.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="appSettings.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
