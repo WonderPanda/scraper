@@ -134,9 +134,9 @@
     </Content>
     <Content Include="host.json" />
     <Content Include="ScrapeTimer\function.json" />
-    <Content Include="appsettings.json" />
     <Content Include="AddSearch\function.json" />
     <Content Include="SearchRunner\function.json" />
+    <Content Include="appSettings.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
